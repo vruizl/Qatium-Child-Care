@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { Care } from '../../models/care.model';
-import { Subscription } from 'rxjs';
+import { forkJoin, Subscription } from 'rxjs';
 import { ChildCareService } from '../../services/child-care.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Balance } from '../../models/balance.model';
@@ -12,6 +12,9 @@ import { LoaderService } from 'src/app/shared/services/loader/loader.service';
 import { LoaderBgColor } from 'src/app/shared/enums/loader-bg-color.enum';
 import { ToastService } from 'src/app/shared/services/toast/toast.service';
 import { DatatableComponent } from '@swimlane/ngx-datatable';
+import { DataManagementService } from 'src/app/shared/services/data-management/data-management.service';
+import { ComputedTxns } from 'src/app/shared/models/netTo0.model';
+import { TimeDebtComponent } from '../time-debt/time-debt.component';
 
 @Component({
   selector: 'app-child-care-mgt',
@@ -23,16 +26,18 @@ export class ChildCareMgtComponent {
   public filteredList: Care[] = [];
   private observable: Subscription;
   public balanceList: Balance[] = [];
+  public timeTxsList: ComputedTxns = [];
   
   public totalRecords : number = 0;
-  public totalRecordsBL : number = 0;
+  
 
   @ViewChild(DatatableComponent) table: DatatableComponent;
 
   constructor(private apiSrv: ChildCareService,
               public loaderSrv: LoaderService,
               private modalService: NgbModal,
-              private toastService: ToastService){}
+              private toastService: ToastService,
+              private dataSrv: DataManagementService){}
 
   ngOnInit(): void {
     this.loadCares();
@@ -104,6 +109,10 @@ export class ChildCareMgtComponent {
     const modalRef = this.modalService.open(BalanceComponent, { size: 'lg',centered: true,backdrop : 'static',  });
   }
 
+  showTimeDebt():void{
+    const modalRef = this.modalService.open(TimeDebtComponent, { size: 'lg',centered: true,backdrop : 'static',  });
+  }
+
   addCare():void{
     const modalRef = this.modalService.open(AddCareComponent, { size: 'lg',centered: true,backdrop : 'static',  });
     modalRef.componentInstance.careDataSaved.subscribe((receivedEntry) => {
@@ -111,6 +120,8 @@ export class ChildCareMgtComponent {
       this.filteredList =  [...this.dataList];
     });
   }
+
+  
 
   ngOnDestroy(){
     if (!!this.observable){

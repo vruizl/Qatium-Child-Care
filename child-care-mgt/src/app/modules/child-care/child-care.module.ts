@@ -11,6 +11,7 @@ import { AddParentComponent } from './components/add-parent/add-parent.component
 import { BalanceComponent } from './components/balance/balance.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { TimeDebtComponent } from './components/time-debt/time-debt.component';
 
 
 
@@ -19,7 +20,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ChildCareMgtComponent,
     AddCareComponent,
     AddParentComponent,
-    BalanceComponent,    
+    BalanceComponent,
+    TimeDebtComponent,    
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,85 @@
+<div class="modal-header">
+    <div class="popUp-header-text">
+        Time debts
+    </div>
+
+    <button type="button" class="popup-btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+        <i class="bi bi bi-x-lg"></i>
+    </button>
+</div>
+
+<div class="modal-body" > 
+   <div>
+    <ngx-datatable class="childCareList-datatable bootstrap" #childCareListDataTable
+    [ngClass]="totalRecords == 0 ? 'datatable-empty': ''"
+    [headerHeight]="60" [footerHeight]="50" [reorderable]="false" [swapColumns]="false"
+    columnMode="force" rowHeight="auto" [scrollbarH]="true" [scrollbarV]="true" [virtualization]="false"
+    [rows]="dataList"
+    [count]="totalRecords"
+    [messages]="{emptyMessage: 'no data'}"
+    [loadingIndicator] = "loaderSrv.getIsLoading()">
+    
+    <!--to fix column witdh (if asked) => columnMode="force" define width, minWidth & maxWidth for the selected columns,
+        if the column doesn't have that values will grow until fill all available space base on the configuration-->
+
+    <ngx-datatable-column name="CaretakerName" [resizeable]="false" [flexGrow]="1"
+        [width]="85" [minWidth]="200"  prop="caretaker" >
+        <ng-template ngx-datatable-header-template let-column="column" let-sort="sortFn" let-sortDir="sortDir">
+            <div class="datatable-header">
+                <div class="datatable-header-text">
+                    <sorting [title]="'Caretaker'" [sortDirection]="sortDir"></sorting>
+                </div>                     
+            </div>
+        </ng-template>
+        <ng-template ngx-datatable-cell-template let-row="row">
+            <div class="datatable-cell">
+                <span class="datatable-cell-content group-name">
+                    {{ row['caretaker']}}
+                </span>
+            </div>
+        </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="ParentName" [resizeable]="false" [sortable]="false" [flexGrow]="1"  [width]="85" [minWidth]="200">
+        <ng-template ngx-datatable-header-template let-sort="sortFn" let-sortDir="sortDir">
+            <div class="datatable-header">
+                <div class="datatable-header-text"  >
+                    <sorting [title]="'Parent'"  [sortDirection]="sortDir"></sorting>
+                    
+                </div>
+            </div>
+        </ng-template>
+        <ng-template ngx-datatable-cell-template let-row="row">
+            <div class="datatable-cell">
+                <span class="datatable-cell-content group-name">
+                    {{ row['parent']}}
+                </span>
+            </div>
+        </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="Duration" [resizeable]="false" [flexGrow]="1"  [width]="50" [minWidth]="50">
+        <ng-template ngx-datatable-header-template let-sort="sortFn" let-sortDir="sortDir">
+            <div class="datatable-header">
+                <div class="datatable-header-text"  >
+                    <sorting [title]="'Duration'"  [sortDirection]="sortDir"></sorting>
+                </div>
+            </div>
+        </ng-template>
+        <ng-template ngx-datatable-cell-template let-row="row">
+            <div class="datatable-cell">
+                <span class="datatable-cell-content group-name">
+                    {{ row['duration'] * 1000 * 60| date:'HH:mm':'UTC'}} 
+                </span>
+            </div>
+        </ng-template>
+    </ngx-datatable-column>
+    <!-- FOOTER -->
+    <ngx-datatable-footer>
+        <ng-template ngx-datatable-footer-template let-rowCount="rowCount" let-pageSize="pageSize"
+            let-selectedCount="selectedCount" let-curPage="curPage" let-offset="offset">
+        </ng-template>
+    </ngx-datatable-footer>
+</ngx-datatable>
+   </div>
+</div>
