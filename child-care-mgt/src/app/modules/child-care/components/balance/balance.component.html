@@ -1,0 +1,74 @@
+<div class="modal-header">
+    <div class="popUp-header-text">
+        Balance
+    </div>
+
+    <button type="button" class="popup-btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+        <i class="bi bi bi-x-lg"></i>
+    </button>
+</div>
+
+<div class="modal-body" > 
+   <div>
+    <ngx-datatable class="balanceList-datatable bootstrap" #childCareListDataTable
+    [ngClass]="totalRecordsBL == 0 ? 'datatable-empty': ''"
+    [headerHeight]="60" [footerHeight]="50" [reorderable]="false" [swapColumns]="false"
+    columnMode="force" rowHeight="auto" [scrollbarH]="true" [scrollbarV]="true" [virtualization]="false"
+    [rows]="balanceList"
+    [count]="totalRecordsBL"
+    [messages]="{emptyMessage: 'no data'}"
+    [loadingIndicator] = "loaderSrv.getIsLoading()">
+    
+    <!--to fix column witdh (if asked) => columnMode="force" define width, minWidth & maxWidth for the selected columns,
+        if the column doesn't have that values will grow until fill all available space base on the configuration-->
+
+    <ngx-datatable-column name="ParentName" [resizeable]="false" [flexGrow]="1"
+        [width]="85" [minWidth]="200"  prop="name" >
+        <ng-template ngx-datatable-header-template let-column="column" let-sort="sortFn" let-sortDir="sortDir">
+            <div class="datatable-header">
+                <div class="datatable-header-text">
+                    <sorting [title]="'Parent'" [sortDirection]="sortDir"></sorting>
+                </div>                     
+            </div>
+        </ng-template>
+        <ng-template ngx-datatable-cell-template let-row="row">
+            <div class="datatable-cell">
+                <span class="datatable-cell-content group-name">
+                    {{ row['parentName']}}
+                </span>
+            </div>
+        </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="Balance" [resizeable]="false" [sortable]="false" [flexGrow]="1"  [width]="85" [minWidth]="200">
+        <ng-template ngx-datatable-header-template let-sort="sortFn" let-sortDir="sortDir">
+            <div class="datatable-header">
+                <div class="datatable-header-text"  >
+                    <sorting [title]="'Balance'"  [sortDirection]="sortDir"></sorting>
+                    
+                </div>
+            </div>
+        </ng-template>
+        <ng-template ngx-datatable-cell-template let-row="row">
+            <div class="datatable-cell">
+                <div>
+                    <span class="datatable-cell-content negative-balance" *ngIf= "row['isNegative']">
+                    - {{-row['balance'] * 1000 * 60| date:'HH:mm':'UTC'}} 
+                    </span>
+                    <span class="datatable-cell-content positive-balance" *ngIf= "!row['isNegative']">
+                      &nbsp;  {{row['balance'] * 1000 * 60| date:'HH:mm':'UTC'}} 
+                    </span>
+                </div>
+            </div>
+        </ng-template>
+    </ngx-datatable-column>
+    <!-- FOOTER -->
+    <ngx-datatable-footer>
+        <ng-template ngx-datatable-footer-template let-rowCount="rowCount" let-pageSize="pageSize"
+            let-selectedCount="selectedCount" let-curPage="curPage" let-offset="offset">
+        </ng-template>
+    </ngx-datatable-footer>
+</ngx-datatable>
+   </div>
+</div>
+

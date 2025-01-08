@@ -1,0 +1,80 @@
+@mixin modal-background($color){
+    background-color: $color !important;
+    filter: alpha(opacity=30) !important;
+    opacity: .3 !important;
+    -moz-opacity: .3 !important;
+}
+
+@keyframes spin{
+    0%{
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.loader-container{
+    display: block;
+    position: fixed;
+    z-index: 10;
+    height: 2em;
+    width: 2em;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+.loader-body{
+    position: fixed;
+    top: 50%;
+    z-index: 9999;
+    margin: auto;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    left: 50%;
+    width: 80%;
+    max-width: 520px;
+    transform: translate(-50%,-50%);
+    padding: 15px 10px;
+}
+.rect-background{
+    background-color: #fff;
+}
+
+.loader-background{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+}
+
+.loading-text{
+    margin-top: 15px;
+    white-space: pre-line;
+}
+
+.spin-loading-bikiosk {
+    border: 3px solid #b9c7ca;
+    border-top: 3px solid #8c9699;
+    -ms-border-radius: 50%;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    -webkit-animation: spin 2s linear infinite;
+    -moz-animation: spin 2s linear infinite;
+    -ms-animation: spin 2s linear infinite;
+    -o-animation: spin 2s linear infinite;
+    animation: spin 0.8s linear infinite;
+}
+.default{
+    @include modal-background(#000);
+}
+.white{
+    @include modal-background(#fff);
+}

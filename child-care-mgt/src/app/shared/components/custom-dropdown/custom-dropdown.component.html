@@ -1,0 +1,10 @@
+<div ngbDropdown class="d-inline-block custom-dropdown" container="body" >
+    <button type="button" class="btn btn-outline-primary custom-dropdown-button" id="{{dropdownName}}" ngbDropdownToggle [disabled]="dropdownDisabled">
+        <span class="placeHolder" [ngClass]="{'placeHolder-fontstyle':!isSelectedItem,'item-fontstyle':isSelectedItem}">
+            {{ isSelectedItem ? selectedItem.name : placeHolder}}
+        </span>
+    </button>
+    <div ngbDropdownMenu aria-labelledby="dropdownName" >
+        <button ngbDropdownItem class="custom-dropdown-item" *ngFor="let option of dataList" (click)="onOptionSelected(option)">{{option.name}}</button>
+    </div>
+</div>

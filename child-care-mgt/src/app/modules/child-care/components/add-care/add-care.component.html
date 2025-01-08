@@ -1,0 +1,149 @@
+<div class="modal-header">
+    <div class="popUp-header-text">
+        Add care
+    </div>
+
+    <button type="button" class="popup-btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+        <i class="bi bi bi-x-lg"></i>
+    </button>
+</div>
+
+<div class="modal-body" > 
+   <div>
+    <form  [formGroup]="careForm">
+        
+        <div class="displayFlex" style="margin-top:20px">
+            <span >
+                <div class="displayFlex">
+                    <label  class="popUp-label">Caretaker</label> 
+                    <div  class="popup-error-label" 
+                        *ngIf="showErrors && caretakerRequiredError">
+                        &nbsp;*Required
+                    </div>
+                </div>
+                <div class="displayFlex">
+                    <app-custom-dropdown [dropdownName]="'careTakers'" [dataList]="caretakersList"
+                                         [selectedOptionId]=""
+                                         [placeHolder]="'CareTaker'"
+                                         (selectedValue)="onCareTakerSelected($event)"
+                                         style="width:285px;margin-top:10px">
+                    </app-custom-dropdown>
+                </div>
+            </span>
+            <span style="margin-left: 10px;">
+                <div class="displayFlex">
+                    <label  class="popUp-label">Parent</label> 
+                    <div  class="popup-error-label" 
+                        *ngIf="showErrors && parentRequiredError">
+                        &nbsp;*Required
+                    </div>
+                </div>
+                <div class="displayFlex">
+                    <app-custom-dropdown [dropdownName]="'parent'" [dataList]="parentsList"
+                                        [selectedOptionId]=""
+                                        [placeHolder]="'Parent'" 
+                                        [resetSelectedValue]="resetParent"
+                                        (selectedValue)="onParentSelected($event)"
+                                        style="width:285px;margin-top:10px">
+                    </app-custom-dropdown>
+                </div>
+            </span>
+        </div>
+        <br>
+        <div class="displayFlex">
+            <span>
+                <div class="displayFlex">
+                    <label  class="popUp-label">Date</label> 
+                    <div  class="popup-error-label" 
+                        *ngIf="showErrors && dateSelected == null">
+                        &nbsp;*Required
+                    </div>
+                    <div  class="popup-error-label" 
+                        *ngIf="invalidDateFormat">
+                        &nbsp;*Invalid format
+                    </div>
+                </div>
+                <div class="displayFlex">
+                    <div class="input-group">
+                        <input
+                            #dpDate
+                            class="form-control date"
+                            placeholder="dd-mm-yyyy"
+                            name="dp"
+                            (dateSelect)="onDateSelection($event)"
+                            ngbDatepicker
+                            [value]="formatter.format(date)"
+                            (input)="date = validateInput(date, dpDate.value);"
+                            #d="ngbDatepicker"
+                        />
+                        <button class="btn btn-outline-secondary bi bi-calendar3" (click)="d.toggle()" type="button"></button>
+                    </div>
+                </div>
+               
+            </span>
+            <span style="margin-left: 10px;">
+                <div class="displayFlex">
+                    <label  class="popUp-label">Time</label> 
+                    <div  class="popup-error-label" 
+                        *ngIf="showErrors && timeSelected == null">
+                        &nbsp;*Required
+                    </div>
+                    <div  class="popup-error-label" 
+                        *ngIf="invalidTimeFormat">
+                        &nbsp;*Invalid format
+                    </div>
+                </div>
+                <div class="displayFlex">
+                    <div class="input-group">
+                        <ngb-timepicker [ngModelOptions]="{standalone: true}" [(ngModel)]="time" [spinners]="false"/>
+                    </div>
+                </div>
+            </span>
+        </div>
+        <div class="displayFlex" style="margin-top:20px">
+            <span >
+                <div class="displayFlex">
+                    <label  class="popUp-label">Duration (in minutes)</label> 
+                    <div  class="popup-error-label" 
+                        *ngIf="showErrors && (careForm.controls['duration'].errors?.['required'])">
+                        &nbsp;*Required
+                    </div>
+                </div>
+                <div class="displayFlex">
+                    <input id="duration" [name]="'duration'"  type="number"
+                            style="width:285px;margin-top:10px"
+                            formControlName="duration"
+                            [placeholder]="'Duration'"> 
+                </div>
+            </span>
+        </div>
+        <div>
+            <span style="margin-left: 10px;">
+                <div class="displayFlex">
+                    <label  class="popUp-label">Observations</label>
+                    <div  class="popup-error-label" 
+                    *ngIf="showErrors && (careForm.controls['observations'].errors?.['required'])">
+                    &nbsp;*Required
+                </div> 
+                </div>
+                <div class="displayFlex">
+                    <textarea rows="3" id="observations" [name]="'observations'" 
+                            style="width:580px;margin-top:10px"
+                            formControlName="observations"
+                            [placeholder]="'Observations'"> 
+                    </textarea>
+                </div>
+            </span>
+        </div>
+    </form>
+    <br>
+    <div style="padding-top:10px" class="displayFlex">
+        <app-feedback-button style="margin-top:10px" 
+                             [feedbackActive]="isLoading" 
+                             [buttonText] = "'Save'"
+                             [buttonClass]= "'sticky-right-button'"
+                             [iconClass] = "'bi-box-arrow-up'" (buttonClick)="saveCareData()">
+        </app-feedback-button>
+   </div>
+   </div>
+</div>

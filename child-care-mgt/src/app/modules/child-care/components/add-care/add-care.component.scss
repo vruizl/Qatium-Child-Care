@@ -1,0 +1,11 @@
+@import 'variables.scss';
+
+input:not(.date){
+    border:none;
+    border-bottom: 1px solid $color-grey-border-button;
+    height: 36px;
+}
+
+input.date{
+    border:1px solid $color-grey-border-button;
+}

@@ -31,8 +31,17 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "node_modules/bootstrap-icons/font/bootstrap-icons.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/@swimlane/ngx-datatable/index.css",
+              "node_modules/@swimlane/ngx-datatable/themes/material.scss",
+              "node_modules/@swimlane/ngx-datatable/assets/icons.css",
+              "src/themes/styles.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": ["src/themes"]
+            },
             "scripts": []
           },
           "configurations": {

@@ -1,0 +1,7 @@
+@import 'variables.scss';
+
+input{
+    border:none;
+    border-bottom: 1px solid $color-grey-border-button;
+    height: 36px;
+}

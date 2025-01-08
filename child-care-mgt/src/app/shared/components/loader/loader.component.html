@@ -1,0 +1,9 @@
+<div *ngIf="showLoader" class="loader-container" >
+    <div class="loader-body" [ngClass]="{'rect-background': text }">
+        <div class="spin-loading-bikiosk"></div>
+        <div *ngIf="text" class="loading-text">
+            <p>{{ text }}</p>
+        </div>
+    </div>
+    <div class="loader-background" [ngClass]="getBgColor()"></div>
+</div>

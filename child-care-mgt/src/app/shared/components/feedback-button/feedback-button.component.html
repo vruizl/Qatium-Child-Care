@@ -1,0 +1,10 @@
+<!--
+    We configure the popOver in here instead on when calling the app-feedback-button in the parent component
+    because, otherwise, the popover is displayed in a wrong position, related with the div containing the buttons instead of related with the button position.
+-->
+<button  type="button" class="btn btn-primary main-button "  [ngClass]="[buttonClass]" [disabled]="feedback" (click)="buttonClicked(p1)" 
+         [ngbPopover]="popOverName"  placement="top-right" triggers="manual" #p1="ngbPopover">
+    {{buttonText}}
+    <i *ngIf = "!feedback" class="bi icon-pl20 " [ngClass]="[iconClass]" ></i>
+    <span  *ngIf = "feedback"  class="icon-loader spinner-border " role="status" aria-hidden="true"></span>
+</button>   

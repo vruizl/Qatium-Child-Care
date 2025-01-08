@@ -1,0 +1,4 @@
+<span class="column-header" [innerHTML] = "title"></span>
+<span class="sort-btn-custom bi" 
+    [ngClass]="{'sort-desc bi-caret-down': sortDirection === 'desc', 'sort-asc bi-caret-up' : sortDirection === 'asc', '':  sortDirection === undefined}"
+></span>

@@ -1,0 +1,48 @@
+@import url(https://fonts.googleapis.com/css?family=Fira+Sans);
+$font-family: 'Fira Sans', sans-serif;
+
+
+$border-grey:  #DADADA;
+
+
+$datatable-header-text-color: #6A707E;
+$datatable-header-background-color: transparent;
+$datatable-header-bottom-line-color: #C2CFE0;
+$datatable-header-total-results-color: #909090;
+$datatable-cell-text-color: #576474;
+$datatable-rol-cell-text-color: #247CC6;
+$datatable-row-border-color: #E7E7E7;
+$font-color: #283138;
+
+$sidebar-width: 220px;
+
+//Main button colour change related to #105571
+//$color-blue-button:#247CC6;
+$color-blue-button:#1565C0;
+$color-grey-border-button: #9CA2AE;
+$color-white-background-button: white;
+$color-disabled-button: white;
+$color-background-disabled-button:#D7DAE1;
+
+$label-color-1: #686663;
+$label-disabled: #C4C4C4;
+$error-label-color: #6e090d;
+$active-color: #22B75E;
+
+$dashboard-help-info-section-title-color: #1565C0;
+
+$font-grey-color: #9CA2AE;
+$font-grey-color-2: #555555;
+$font-warning-color-red: #970c11;
+
+//font-sizes
+$button-font-size: 14px;
+$popover-button-font-size: 12px;
+$popover-text-font-size: 13px;
+$placeholder-font-size: 12px;
+$label-font-size: 14px;
+$datatable-footer-font-size: 11px;
+$datatable-content-font-size: 14px;
+$datatable-header-font-size: 16px;
+$sidebar-text-font-size: 14px;
+$section-title-font-size: 16px;

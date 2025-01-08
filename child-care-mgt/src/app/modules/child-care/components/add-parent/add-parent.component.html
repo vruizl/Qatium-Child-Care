@@ -1,0 +1,38 @@
+<div class="modal-header">
+    <div class="popUp-header-text">
+        Add parent
+    </div>
+
+    <button type="button" class="popup-btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+        <i class="bi bi bi-x-lg"></i>
+    </button>
+</div>
+
+<div class="modal-body" > 
+    <form  [formGroup]="usersForm">
+        <span>
+            <div class="displayFlex">
+                <label  class="popUp-label">Name</label> 
+                <div  class="popup-error-label" 
+                    *ngIf="showErrors && ( usersForm.controls['userName'].errors?.['required'])">
+                    &nbsp;*Required
+                </div>
+            </div>
+            <div class="displayFlex">
+                <input id="userName" [name]="'userName'"
+                        style="width:285px;margin-top:10px;margin-left:10px"
+                        [placeholder]="'Name'"
+                        formControlName="userName"> 
+            </div>
+        </span>
+    </form>
+    <br>
+    <div style="padding-top:10px" class="displayFlex">
+        <app-feedback-button style="margin-top:10px" 
+                             [feedbackActive]="isLoading" 
+                             [buttonText] = "'Save'"
+                             [buttonClass]= "'sticky-right-button'"
+                             [iconClass] = "'bi-box-arrow-up'" (buttonClick)="saveUserData()">
+        </app-feedback-button>
+   </div>
+</div>

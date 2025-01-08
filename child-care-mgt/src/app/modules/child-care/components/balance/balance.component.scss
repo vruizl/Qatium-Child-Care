@@ -1,0 +1,218 @@
+@import 'variables.scss';
+
+.modalClass .spinner-border {
+    width: 5rem !important;
+    height: 5rem !important;
+    border-width: 0.5rem;
+    border-color: white;
+    border-right-color: transparent;
+  }
+  
+  .modal-loader 
+  {
+      width:800px;
+      height:530px;
+      justify-content: center;
+      display: flex;
+  }
+
+    
+  .modal-body {
+    height: 500px !important;
+    overflow-x:auto;
+  }
+
+  .negative-balance{
+    color: red !important;
+}
+
+.positive-balance{
+    color:green !important;
+}
+
+  /*licenses list*/
+
+  @mixin datatable-footer {
+    font-family: $font-family;
+    font-style: italic;
+    font-weight: normal;
+    font-size: $datatable-footer-font-size;
+    align-items: center;
+    color:$datatable-header-total-results-color;
+  }
+    
+  @mixin header-text-wrap {
+    word-wrap: break-word;
+    hyphens: auto;
+    white-space: normal;
+    height: 46px;
+  }
+    
+   
+  $font-size: 13px;
+  
+  :host ::ng-deep ngx-datatable {
+  
+      &.datatable-empty {
+        div[role="table"] {
+          overflow: auto !important;
+        }
+    
+        datatable-header {
+          min-width: 600px !important;
+        }
+    
+        .datatable-body {
+          height: 180px !important;
+        }
+      }
+      
+      div[role="table"] {
+        //margin-top: 80px;
+        //margin-top: 120px;
+      }
+      
+      .datatable-body {
+        height: 350px !important;
+        width: calc(100% - 10px) !important;
+        //width: 750px !important;
+        overflow-x: auto;
+      }
+      .datatable-header{
+        width: 100% !important;
+      }
+      
+      .datatable-footer {
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+    
+      .sort-btn{
+        display:none !important;
+      }
+      
+      .datatable-scroll {
+        width: 100% !important;
+      }
+    
+      .datatable-row-wrapper {
+        width: 100% !important;
+      }
+    
+      .datatable-body-row {
+        width: 100% !important;
+        //border: 1px solid $datatable-row-border-color;
+       border-bottom: 1px solid $datatable-row-border-color;
+        margin-bottom: 2px;
+      }
+      
+      .datatable-row-center {
+        width: 100% !important;
+      }
+    
+      .datatable-body-cell-label {
+        height: 100%;
+      }
+    
+      .datatable-body-cell {
+        // border-bottom: 2px solid rgb(159, 159, 159);
+      }
+      
+      .datatable-pager {
+        flex: unset !important;
+      }
+      
+      .ngx-datatable.fixed-header .datatable-header .datatable-header-inner .datatable-header-cell {
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        white-space: normal !important;
+        text-align: center !important;
+        vertical-align: middle !important;
+      }
+      
+      .empty-row {
+        text-align: center;
+        font-family: $font-family;
+        font-size: $font-size;
+        color: $font-grey-color-2;
+        position: fixed;
+        left: 40%;
+      }
+      
+      /* scroolbar */
+      /* width */
+      /* ::-webkit-scrollbar {
+        width: 15px;
+        height: 15px;    
+      } */
+    
+      /* Track */
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+    
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        background: #888;
+      }
+    
+      /* Handle on hover */
+      ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+        cursor: default;
+      } 
+        /* end scrollbar*/
+    }
+    .balanceList-datatable {
+      margin-top:10px;
+  
+      .datatable-cell {
+        height: 100%;
+      }
+      
+      .datatable-header-text {
+        background-color:$datatable-header-background-color;
+        color: $datatable-header-text-color;
+        font-size:$datatable-header-font-size;
+        //font-size: $font-size;
+        //font-weight: bold;
+        padding: 2px 5px;
+        margin: 0px;
+        overflow: hidden;
+        font-family: $font-family;
+        cursor: pointer;
+        border-bottom: solid 1px $datatable-header-bottom-line-color;
+        @include header-text-wrap
+      }
+      
+      .datatable-cell-content {
+        font-size: $datatable-content-font-size;
+        color: $datatable-cell-text-color;
+        font-family: $font-family; //Arial, sans-serif;  
+        padding: 5px 5px;
+        display: block;
+      }
+      
+      .datatable-cell-multiline {
+        label {
+          margin: 0px 5px 0px 0px;
+        }
+      }
+    
+      .datatable-footer-elements {
+        font-size: $datatable-footer-font-size;
+        color:$datatable-header-total-results-color;
+        font-style: italic;
+      }
+      
+      .datatable-footer-container {
+        margin-right: 0;
+        margin-left: auto;
+        display: flex;
+        line-height: 30px;
+      }
+  }
+
+  
+
