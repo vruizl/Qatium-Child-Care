@@ -2,10 +2,10 @@ import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { NgbActiveModal, NgbCalendar, NgbDate, NgbDateAdapter, NgbDateParserFormatter, NgbDatepickerI18n, NgbDateStruct, NgbTimeStruct } from '@ng-bootstrap/ng-bootstrap';
 import { ChildCareService } from '../../services/child-care.service';
-import { ToastService } from 'src/app/shared/services/toast/toast.service';
+import { ToastService } from '../../../../../app/shared/services/toast/toast.service';
 import { AddCare } from '../../models/addCare.model';
 import { Subscription } from 'rxjs';
-import { ModalActions } from 'src/app/shared/enums/modal-actions.enum';
+import { ModalActions } from '../../../../../app/shared/enums/modal-actions.enum';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Parent } from '../../models/parent.model';
 import { CustomAdapter, CustomDateParserFormatter } from '../../adapters/custom-date-formatter';
@@ -51,7 +51,7 @@ export class AddCareComponent {
   constructor(public activeModal: NgbActiveModal,
               public formBuilder: FormBuilder,
               public apiSrv: ChildCareService,
-              private toastService: ToastService) { }
+              public toastService: ToastService) { }
 
   ngOnInit(): void {
     this.loadParents();

@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
+import { environment } from '../../../../../src/environments/environment';
 import { Care } from '../models/care.model';
 import { Observable, of } from 'rxjs';
-import { HttpService } from 'src/app/shared/services/http-service/http-service.service';
+import { HttpService } from '../../../../app/shared/services/http-service/http-service.service';
 import { AddCare } from '../models/addCare.model';
 import { AddParent } from '../models/addParent.model';
 import { Parent } from '../models/parent.model';
