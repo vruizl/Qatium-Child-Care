@@ -19,7 +19,7 @@ const routes: Routes = [
   },
   {
     path:'',
-    redirectTo:'child-care',
+    redirectTo:'portal',
     pathMatch: 'full'
   }
 ];

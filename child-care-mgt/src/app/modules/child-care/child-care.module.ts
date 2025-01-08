@@ -29,8 +29,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     SharedModule,
     ReactiveFormsModule,
     FormsModule,
-    NgbModule,
-    RouterModule.forChild(childCareRoutes)
+    NgbModule
   ]
 })
 export class ChildCareModule { }

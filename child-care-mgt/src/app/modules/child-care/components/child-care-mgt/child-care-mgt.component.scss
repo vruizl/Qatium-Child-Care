@@ -1,5 +1,12 @@
 @import 'variables.scss';
 
+:host(app-child-care-mgt){
+    display:flex;
+    width:100%;
+    justify-content: center;
+  }
+
+
 @mixin datatable-footer {
   font-family: $font-family;
   font-style: italic;

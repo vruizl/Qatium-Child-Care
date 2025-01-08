@@ -4,8 +4,7 @@ import { ChildCareMgtComponent } from "./components/child-care-mgt/child-care-mg
 
 export const childCareRoutes: Routes = [
     { 
-      path: '', 
-      component: ChildCareMgtComponent, 
+      
      
     }
 ]; 

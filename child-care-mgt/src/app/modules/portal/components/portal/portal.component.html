@@ -1,0 +1,21 @@
+<div *ngIf="showPortal;else loader">
+    <div>
+        <app-header>
+        </app-header>
+        <div class="config-container">
+            <div class="row">
+                <div >
+                    <app-content>
+                    </app-content>   
+                </div>
+            </div> 
+        </div>
+    </div>
+    <div class="error-container" *ngIf="errorMessage">
+        <p class="text-danger">{{ textErrorMessage }}</p>
+    </div>
+</div>
+<ng-template #loader>
+    <app-loader></app-loader>
+</ng-template>
+
