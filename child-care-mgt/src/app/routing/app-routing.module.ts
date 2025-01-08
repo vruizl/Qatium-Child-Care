@@ -19,7 +19,7 @@ const routes: Routes = [
   },
   {
     path:'',
-    redirectTo:'portal',
+    redirectTo:'login',
     pathMatch: 'full'
   }
 ];

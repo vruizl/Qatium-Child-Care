@@ -20,7 +20,7 @@ export class HeaderComponent {
   }
 
   public logout(){
-     //this.router.navigate(['/login']); 
+     this.router.navigate(['/login']); 
   }
 
 }
