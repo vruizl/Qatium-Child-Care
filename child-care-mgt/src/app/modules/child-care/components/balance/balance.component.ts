@@ -3,9 +3,9 @@ import { Component } from '@angular/core';
 import { forkJoin } from 'rxjs';
 import { Balance } from '../../models/balance.model';
 import { ChildCareService } from '../../services/child-care.service';
-import { DataManagementService } from 'src/app/shared/services/data-management/data-management.service';
+import { DataManagementService } from '../../../../../app/shared/services/data-management/data-management.service';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { LoaderService } from 'src/app/shared/services/loader/loader.service';
+import { LoaderService } from '../../../../../app/shared/services/loader/loader.service';
 
 @Component({
   selector: 'app-balance',

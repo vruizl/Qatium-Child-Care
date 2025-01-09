@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { ChildCareService } from '../../services/child-care.service';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { LoaderService } from 'src/app/shared/services/loader/loader.service';
-import { DataManagementService } from 'src/app/shared/services/data-management/data-management.service';
+import { LoaderService } from '../../../../../app/shared/services/loader/loader.service';
+import { DataManagementService } from '../../../../../app/shared/services/data-management/data-management.service';
 import { forkJoin } from 'rxjs';
 import { Balance } from '../../models/balance.model';
-import { ComputedTxns } from 'src/app/shared/models/netTo0.model';
+import { ComputedTxns } from '../../../../../app/shared/models/netTo0.model';
 import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({

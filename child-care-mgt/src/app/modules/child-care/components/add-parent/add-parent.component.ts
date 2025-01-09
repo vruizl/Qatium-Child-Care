@@ -1,11 +1,10 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Parent } from '../../models/parent.model';
 import { Subscription } from 'rxjs';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ChildCareService } from '../../services/child-care.service';
-import { ToastService } from 'src/app/shared/services/toast/toast.service';
-import { ModalActions } from 'src/app/shared/enums/modal-actions.enum';
+import { ToastService } from '../../../../../app/shared/services/toast/toast.service';
+import { ModalActions } from '../../../../../app/shared/enums/modal-actions.enum';
 import { HttpErrorResponse } from '@angular/common/http';
 import { AddParent } from '../../models/addParent.model';
 

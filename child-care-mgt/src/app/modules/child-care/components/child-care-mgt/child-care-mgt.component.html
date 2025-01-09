@@ -3,16 +3,16 @@
     
     <ng-container>
         <div  class="button-right grid">
-            <button  type="button" class="btn btn-primary main-button small-button-width" (click) = "addCare()">
+            <button  #addCareBtn type="button"  class="btn btn-primary main-button small-button-width" (click) = "addCare()">
                 <i class="bi bi-house-add "></i>
             </button>
-            <button  type="button" class="btn btn-primary main-button small-button-width" (click) = "addParent()">
+            <button  #addParentBtn type="button" class="btn btn-primary main-button small-button-width" (click) = "addParent()">
                 <i class="bi bi-person-add "></i>
             </button>
-            <button  type="button" class="btn btn-primary main-button small-button-width" (click) = "showBalance()">
+            <button  #showBalanceBtn type="button" class="btn btn-primary main-button small-button-width" (click) = "showBalance()">
                 <i class="bi bi-clipboard-data " ></i>
             </button>
-            <button  type="button" class="btn btn-primary main-button small-button-width" (click) = "showTimeDebt()">
+            <button #showTimeDebtBtn type="button" class="btn btn-primary main-button small-button-width" (click) = "showTimeDebt()">
                 <i class="bi bi-calculator " ></i>
             </button>
         </div>

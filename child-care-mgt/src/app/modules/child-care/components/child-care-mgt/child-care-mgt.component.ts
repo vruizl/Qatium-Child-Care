@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Care } from '../../models/care.model';
 import { forkJoin, Subscription } from 'rxjs';
 import { ChildCareService } from '../../services/child-care.service';
@@ -8,12 +8,12 @@ import { AddParentComponent } from '../add-parent/add-parent.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { BalanceComponent } from '../balance/balance.component';
 import { AddCareComponent } from '../add-care/add-care.component';
-import { LoaderService } from 'src/app/shared/services/loader/loader.service';
-import { LoaderBgColor } from 'src/app/shared/enums/loader-bg-color.enum';
-import { ToastService } from 'src/app/shared/services/toast/toast.service';
+import { LoaderService } from '../../../../../app/shared/services/loader/loader.service';
+import { LoaderBgColor } from '../../../../../app/shared/enums/loader-bg-color.enum';
+import { ToastService } from '../../../../../app/shared/services/toast/toast.service';
 import { DatatableComponent } from '@swimlane/ngx-datatable';
-import { DataManagementService } from 'src/app/shared/services/data-management/data-management.service';
-import { ComputedTxns } from 'src/app/shared/models/netTo0.model';
+import { DataManagementService } from '../../../../../app/shared/services/data-management/data-management.service';
+import { ComputedTxns } from '../../../../../app/shared/models/netTo0.model';
 import { TimeDebtComponent } from '../time-debt/time-debt.component';
 
 @Component({
@@ -32,11 +32,16 @@ export class ChildCareMgtComponent {
   
 
   @ViewChild(DatatableComponent) table: DatatableComponent;
+  @ViewChild('addCareBtn') addCareBtn: ElementRef<HTMLElement>;
+  @ViewChild('addParentBtn') addParentBtn: ElementRef<HTMLElement>;
+  @ViewChild('showBalanceBtn') showBalanceBtn: ElementRef<HTMLElement>;
+  @ViewChild('showTimeDebtBtn') showTimeDebtBtn: ElementRef<HTMLElement>;
+
 
   constructor(private apiSrv: ChildCareService,
               public loaderSrv: LoaderService,
               private modalService: NgbModal,
-              private toastService: ToastService,
+              public toastService: ToastService,
               private dataSrv: DataManagementService){}
 
   ngOnInit(): void {
