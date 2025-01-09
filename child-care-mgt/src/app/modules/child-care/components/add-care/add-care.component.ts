@@ -130,7 +130,7 @@ export class AddCareComponent {
   }
 
   saveCareData(){
-    this.timeSelected = this.time.hour + ":" + this.time.minute;
+    this.timeSelected = this.time.hour.toString().padStart(2,"0")+ ":" + this.time.minute.toString().padEnd(2,"0");
     if(this.careForm.invalid ) {
       this.showErrors = true;
     }else if(this.parentSelected == 0){
