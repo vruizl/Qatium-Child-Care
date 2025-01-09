@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FeedbackButtonComponent } from './feedback-button.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 describe('FeedbackButtonComponent', () => {
   let component: FeedbackButtonComponent;
@@ -8,7 +9,8 @@ describe('FeedbackButtonComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [FeedbackButtonComponent]
+      declarations: [FeedbackButtonComponent],
+      imports: [NgbModule]
     });
     fixture = TestBed.createComponent(FeedbackButtonComponent);
     component = fixture.componentInstance;
