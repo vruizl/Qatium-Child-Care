@@ -28,23 +28,6 @@ export class DataManagementService {
     return balanceList;
   }
 
-  calculateTotals(parentsList: Parent[], carelist: Care[]){
-    let balanceList = [];
-    parentsList.forEach(parent => {
-      let balance = 0;
-      carelist.forEach(care => {
-      if(care.parentId === parent.id){
-          balance += care.duration;
-        }
-        /*if(care.caretakerId === parent.id){
-          balance += care.duration;
-        }*/
-      });
-      balanceList.push({parentId: parent.id, parentName: parent.name, balance: balance, isNegative: balance < 0});
-    });
-    return balanceList;
-  }
-
   /*0 DEBT */
 
   private timeDebts: TimeDebtType;
@@ -75,7 +58,7 @@ export class DataManagementService {
       this.timeDebts = timeDebts;
   }
 
-  public get_transactions(): ComputedTxns {
+  public getTransactions(): ComputedTxns {
       // pool: bins and items (creditors and debtors)
       // bins: creditors to whom pool(debtors) owes time to
       // items: debtors who owe time to the pool(creditors)

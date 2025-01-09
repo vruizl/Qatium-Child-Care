@@ -35,7 +35,7 @@ export class TimeDebtComponent {
         {
          this.balanceList = this.dataMgtSrv.calculateBalance(response[0], response[1]);
          this.dataMgtSrv.setBalanceList(this.balanceList)
-         this.timeTxsList = this.dataMgtSrv.get_transactions();
+         this.timeTxsList = this.dataMgtSrv.getTransactions();
          this.timeTxsList.forEach(tx => {
           this.dataList.push({caretaker: tx.from_friend.name, parent: tx.to_friend.name, duration: +tx.amount});
          });
